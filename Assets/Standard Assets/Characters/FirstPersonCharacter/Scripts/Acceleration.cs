@@ -32,7 +32,7 @@ public class Acceleration : MonoBehaviour {
             t--;
         }
         var z = gameObject.name.Equals("Main Camera") ? 25f : 0f;
-        transform.position = new Vector3(0, (v + (a) * t * t) / 10, z);
-
+		var movHoriz = -(Input.GetAxis ("Horizontal"));
+		transform.position = new Vector3 (movHoriz, (v + (a) * t * t) / 10, z);
     }
 }
