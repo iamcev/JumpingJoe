@@ -33,10 +33,10 @@ public class Acceleration : MonoBehaviour {
         {
             t--;
         }
-		Vector3 movHoriz = (Input.mousePosition);
+		Vector3 movHoriz = Input.mousePosition;
 		Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 		var z = gameObject.name.Equals ("Main Camera") ? 25f : 0f;
-		transform.position = new Vector3 (movHoriz.x / 100 - Screen.width / 200, (v + (a) * t * t) / 10 - q, z + q);
+		transform.position = new Vector3 (-movHoriz.x / 50 + Screen.width / 100, (v + (a) * t * t) / 10 - q, z + q);
 		meters.text = t.ToString() + "m";
 		if (t > 1000)
 		{
