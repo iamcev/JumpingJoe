@@ -28,8 +28,16 @@ public class ObstacleManager : MonoBehaviour {
 		GameObject go;
 		go = Instantiate (obstacles [RandomObstacle()]) as GameObject;
 		go.transform.SetParent (transform);
-		go.transform.position = Vector3.up * spawnY;
-		spawnY += distance;
+		if (go.name == "Simple_Obstacle") {
+			go.transform.position = Vector3.up * spawnY;
+			go.transform.position = Vector3.right * 3.0f;
+			spawnY += distance * 2;
+		} else if (go.name == "Another_Simple_Obstacle"){
+			go.transform.position = Vector3.up * spawnY * distance;
+			go.transform.position = Vector3.left * 3.0f;
+			spawnY += distance * 2;
+		}
+		spawnY += distance * 2;
 	}
 	private int RandomObstacle() {
 		if (obstacles.Length <= 1) {
