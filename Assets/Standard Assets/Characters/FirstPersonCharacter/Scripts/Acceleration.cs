@@ -9,11 +9,17 @@ public class Acceleration : MonoBehaviour {
     public float v = 0.00f;
     public int t = 0;
 	public float q = -6;
+	private int speed = 1;
 	public GameObject JumpingJoe;
     public bool Accelerating {
         get
         {
-            return Input.GetKey("space");
+            return Input.GetKey("space"); 
+			if (Application.platform == RuntimePlatform.Android) {
+				if (Input.touchCount > 0) {
+					return true;
+				}
+			}
 		}
     }
 
@@ -27,7 +33,7 @@ public class Acceleration : MonoBehaviour {
     {
         if (Accelerating)
         {
-            t++;
+			t++;
         }
         else if(t > 0)
         {

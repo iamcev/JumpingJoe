@@ -12,16 +12,16 @@ public class ObstacleManager : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		for (int i = 0; i < obstaclesOnScreen; i++) {
+		for (int i = 0; i < 10; i++) {
 			MakeNewObstacle ();
 		}
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		if (player.transform.position.y > (spawnY - obstaclesOnScreen * distance)) {
-			MakeNewObstacle ();
-		}
+		//if (player.transform.position.y > (spawnY - obstaclesOnScreen * distance)) {
+		//	MakeNewObstacle ();
+		//}
 	}
 
 	void MakeNewObstacle() {
@@ -31,13 +31,13 @@ public class ObstacleManager : MonoBehaviour {
 		if (go.name == "Simple_Obstacle") {
 			go.transform.position = Vector3.up * spawnY;
 			go.transform.position = Vector3.right * 3.0f;
-			spawnY += distance * 2;
+			spawnY += distance;
 		} else if (go.name == "Another_Simple_Obstacle"){
-			go.transform.position = Vector3.up * spawnY * distance;
+			go.transform.position = Vector3.up * spawnY;
 			go.transform.position = Vector3.left * 3.0f;
-			spawnY += distance * 2;
+			spawnY += distance;
 		}
-		spawnY += distance * 2;
+		spawnY += distance;
 	}
 	private int RandomObstacle() {
 		if (obstacles.Length <= 1) {
@@ -45,7 +45,7 @@ public class ObstacleManager : MonoBehaviour {
 		}
 		int RandomO = LastObstacle;
 		while (RandomO == LastObstacle) {
-			RandomO = Random.Range(0, obstacles.Length);
+			RandomO = Random.Range(0, 3);
 		}
 		LastObstacle = RandomO;
 		return RandomO;
