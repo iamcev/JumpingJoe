@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/jumpinjoe.unity
+- path: Assets/Scenes/jumpinjoe.unity
   isLoaded: 1
   isActive: 1
