@@ -189,12 +189,12 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 151018997}
-  m_LocalRotation: {x: 0, y: 0.9848078, z: -0.17364816, w: 0}
-  m_LocalPosition: {x: 0, y: 3.3, z: 12.68}
+  m_LocalRotation: {x: -0, y: 0.9848078, z: -0.17364816, w: 0}
+  m_LocalPosition: {x: 0, y: 5.69, z: 12.82}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_Father: {fileID: 1923266859}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 20, y: 180, z: 0}
 --- !u!114 &151019002
 MonoBehaviour:
@@ -204,16 +204,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 151018997}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e1f99f39f8b8bfb44be1de44bca9d21e, type: 3}
+  m_Script: {fileID: 11500000, guid: e3fc697a7bcb42a41a24927ab8421ef1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  meters: {fileID: 984498390}
-  a: 0.05
-  dc: -0.08
-  v: 0
-  t: 0
-  q: -6.64
-  JumpingJoe: {fileID: 1923266855}
 --- !u!1 &255276420
 GameObject:
   m_ObjectHideFlags: 0
@@ -257,7 +250,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &673719230
 GameObject:
@@ -319,7 +312,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &984498388
 GameObject:
@@ -482,7 +475,7 @@ RectTransform:
   m_Children:
   - {fileID: 984498389}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -526,7 +519,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: bcca1cd520b852f4db9d12fa1ada9d97, type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2300000, guid: bcca1cd520b852f4db9d12fa1ada9d97, type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -575,7 +568,6 @@ MonoBehaviour:
   dc: -0.08
   v: 0
   t: 0
-  q: 0
   JumpingJoe: {fileID: 1923266855}
 --- !u!136 &1923266858
 CapsuleCollider:
@@ -590,6 +582,10 @@ CapsuleCollider:
   m_Height: 6.75
   m_Direction: 1
   m_Center: {x: 0, y: 2, z: 0}
+--- !u!4 &1923266859 stripped
+Transform:
+  m_PrefabParentObject: {fileID: 400002, guid: bcca1cd520b852f4db9d12fa1ada9d97, type: 3}
+  m_PrefabInternal: {fileID: 1862047400}
 --- !u!1 &2003674996
 GameObject:
   m_ObjectHideFlags: 0
@@ -653,7 +649,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
 --- !u!1 &2086500235
 GameObject:
@@ -737,5 +733,5 @@ Transform:
   m_LocalScale: {x: 40, y: 0.5, z: 40}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

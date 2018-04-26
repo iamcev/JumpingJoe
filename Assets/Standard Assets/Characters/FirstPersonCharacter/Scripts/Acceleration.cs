@@ -8,7 +8,6 @@ public class Acceleration : MonoBehaviour {
     public float dc = -0.08f;
     public float v = 0.00f;
     public int t = 0;
-	public float q = -6;
 	private int speed = 1;
 	public GameObject JumpingJoe;
     public bool Accelerating {
@@ -42,7 +41,7 @@ public class Acceleration : MonoBehaviour {
 		Vector3 movHoriz = Input.mousePosition;
 		Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 		var z = gameObject.name.Equals ("Main Camera") ? 25f : 0f;
-		transform.position = new Vector3 (-movHoriz.x / 50 + Screen.width / 100, (v + (a) * t * t) / 10 - q, z + q);
+		transform.position = new Vector3 (-movHoriz.x / 50 + Screen.width / 100, (v + (a) * t * t) / 10, z);
 		meters.text = t.ToString() + "m";
 		if (t > 1000)
 		{
@@ -51,5 +50,16 @@ public class Acceleration : MonoBehaviour {
 		
 
     }	
+
+	void OnCollisionEnter (Collision col) {
+		if (col.gameObject.tag == "Obstacle") {
+			Restart ();
+			Debug.Log("flajf");
+		} 
+	}
+
+	void Restart() {
+		transform.position = new Vector3 (0, 0, 0);
+	} 
 
 }
