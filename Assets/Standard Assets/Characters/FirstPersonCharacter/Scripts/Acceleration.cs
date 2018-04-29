@@ -3,49 +3,84 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI; 
 public class Acceleration : MonoBehaviour {
-	public Text meters;
-    public float a = 0.18f;
-    public float dc = -0.08f;
-    public float v = 0.00f;
-    public int t = 0;
-	private int speed = 1;
-	public GameObject JumpingJoe;
-    public bool Accelerating {
+    public Text meters;
+    float delta = 0f;
+    float height = 0f;
+    const float incr = 0.02f;
+    bool Accelerating
+    {
         get
         {
-            return Input.GetKey("space"); 
-			if (Application.platform == RuntimePlatform.Android) {
-				if (Input.touchCount > 0) {
-					return true;
-				}
-			}
-		}
+            if (Application.platform == RuntimePlatform.Android)
+            {
+                if (Input.touchCount > 0)
+                {
+                    return true;
+                }
+            }
+            return Input.GetKey("space");
+        }
     }
+
+    short LeftRightModifier
+    {
+         get
+        {
+            if(Input.GetKey("left"))
+            {
+                return 1;
+            }
+            else if (Input.GetKey("right"))
+            {
+                return -1;
+            }
+            return 0;
+        }
+    }
+
+    public GameObject JumpingJoe;
 
 	// Use this for initialization
 	void Start () 
 	{
-	}
+        delta = 0f;
+        height = 0f;
+    }
 
     // Update is called once per frame
     void Update()
     {
-        if (Accelerating)
+        if (this.Accelerating)
         {
-			t++;
+            delta += incr;
         }
-        else if(t > 0)
+        else
         {
-            t--;
+            delta -= incr;
         }
-		Vector3 movHoriz = Input.mousePosition;
-		Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-		var z = gameObject.name.Equals ("Main Camera") ? 25f : 0f;
-		transform.position = new Vector3 (-movHoriz.x / 50 + Screen.width / 100, (v + (a) * t * t) / 10, z);
-		meters.text = t.ToString() + "m";
-		if (t > 1000)
+        height += delta;
+        if (height <= 0)
+        {
+            height = 0f;
+            delta = 0f;
+        }
+        //Vector3 movHoriz = Input.mousePosition;
+        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        var z = gameObject.name.Equals("Main Camera") ? 25f : 0f;
+        var x = transform.position.x + LeftRightModifier * incr * 5;
+        if (x > 17)
+        {
+            x = 17;
+        } else if (x < -17)
+        {
+            x = -17;
+        }
+        transform.position = new Vector3(x, height, transform.position.z);
+		meters.text = height.ToString() + "m";
+        Debug.Log(transform.position);
+		if (height > 1000)
 		{
-			meters.text = (t / 1000).ToString() + "km"; 
+			meters.text = (height / 1000).ToString() + "km"; 
 		}
 		
 
@@ -53,7 +88,7 @@ public class Acceleration : MonoBehaviour {
 
 	void OnCollisionEnter (Collision col) {
 		if (col.gameObject.tag == "Obstacle") {
-			Restart ();
+			Restart();
 			Debug.Log("flajf");
 		} 
 	}
