@@ -39,7 +39,6 @@ public class Acceleration : MonoBehaviour {
             t--;
         }
 		Vector3 movHoriz = Input.mousePosition;
-		Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 		var z = gameObject.name.Equals ("Main Camera") ? 25f : 0f;
 		transform.position = new Vector3 (-movHoriz.x / 50 + Screen.width / 100, (v + (a) * t * t) / 10, z);
 		meters.text = t.ToString() + "m";
@@ -52,9 +51,8 @@ public class Acceleration : MonoBehaviour {
     }	
 
 	void OnCollisionEnter (Collision col) {
-		if (col.gameObject.tag == "Obstacle") {
+		if (col.gameObject.name == "Simple_Obstacle" || col.gameObject.name == "Another_Simple_Obstacle") {
 			Restart ();
-			Debug.Log("flajf");
 		} 
 	}
 
