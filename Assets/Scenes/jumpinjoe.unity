@@ -552,7 +552,7 @@ Prefab:
 GameObject:
   m_PrefabParentObject: {fileID: 100002, guid: bcca1cd520b852f4db9d12fa1ada9d97, type: 3}
   m_PrefabInternal: {fileID: 1862047400}
---- !u!114 &1923266856
+--- !u!114 &1923266857
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
@@ -560,25 +560,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1923266855}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d1b8375518811f9428f92ab7b28d6fd7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &1923266857
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1923266855}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e1f99f39f8b8bfb44be1de44bca9d21e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   meters: {fileID: 984498390}
-  a: 0.05
-  dc: -0.08
-  v: 0
-  t: 0
   JumpingJoe: {fileID: 1923266855}
 --- !u!136 &1923266858
 CapsuleCollider:
@@ -742,3 +727,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2111350110 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 100000, guid: bcca1cd520b852f4db9d12fa1ada9d97, type: 3}
+  m_PrefabInternal: {fileID: 1862047400}
+--- !u!114 &2111350111
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2111350110}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e1f99f39f8b8bfb44be1de44bca9d21e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  meters: {fileID: 0}
+  JumpingJoe: {fileID: 0}
