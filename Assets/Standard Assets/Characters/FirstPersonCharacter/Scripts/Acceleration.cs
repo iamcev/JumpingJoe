@@ -64,7 +64,7 @@ public class Acceleration : MonoBehaviour {
             height = 0f;
             delta = 0f;
         }
-        //Vector3 movHoriz = Input.mousePosition;
+		var movHoriz = Input.mousePosition.x;
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         var z = gameObject.name.Equals("Main Camera") ? 25f : 0f;
         var x = transform.position.x + LeftRightModifier * incr * 5;
@@ -75,7 +75,7 @@ public class Acceleration : MonoBehaviour {
         {
             x = -17;
         }
-        transform.position = new Vector3(x, height, transform.position.z);
+		transform.position = new Vector3(x, height, transform.position.z);
 		meters.text = height.ToString() + "m";
         Debug.Log(transform.position);
 		if (height > 1000)

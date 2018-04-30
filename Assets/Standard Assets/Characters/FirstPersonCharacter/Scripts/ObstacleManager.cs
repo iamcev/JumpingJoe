@@ -3,51 +3,56 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class ObstacleManager : MonoBehaviour {
+
 	public GameObject[] obstacles;
-	private float spawnY = 0.0f;
-	private float distance = 5.0f;
-	private int obstaclesOnScreen = 5;
-	private int LastObstacle = 0; 
-	public GameObject player; 
+	private Transform jjt;
+	private float SpawnY = 0.0f;
+	private float Dist = 8.0f;
+	private int ObstaclesOnScreen = 6;
+	private int LastObInd = 0;
+
+	private List<GameObject> activeObstacle;
 
 	// Use this for initialization
 	void Start () {
-		for (int i = 0; i < 10; i++) {
-			MakeNewObstacle ();
+		activeObstacle = new List<GameObject> ();
+		jjt = GameObject.FindGameObjectWithTag ("Player").transform;
+		for(int i = 0; i < ObstaclesOnScreen; i++) {
+			MakeObstacle();
 		}
-	}
-	
+   	} 
+
 	// Update is called once per frame
 	void Update () {
-		//if (player.transform.position.y > (spawnY - obstaclesOnScreen * distance)) {
-		//	MakeNewObstacle ();
-		//}
+		if (jjt.position.y - 15.0f > SpawnY - ObstaclesOnScreen * Dist) {
+			MakeObstacle ();
+			DeleteObstacle ();
+		}
+			
 	}
 
-	void MakeNewObstacle() {
-		GameObject go;
-		go = Instantiate (obstacles [RandomObstacle()]) as GameObject;
-		go.transform.SetParent (transform);
-		if (go.name == "Simple_Obstacle") {
-			go.transform.position = Vector3.up * spawnY;
-			go.transform.position = Vector3.right * 3.0f;
-			spawnY += distance;
-		} else if (go.name == "Another_Simple_Obstacle"){
-			go.transform.position = Vector3.up * spawnY;
-			go.transform.position = Vector3.left * 3.0f;
-			spawnY += distance;
-		}
-		spawnY += distance;
+	private void MakeObstacle(int obind = -1) {
+		GameObject o;
+		o = Instantiate (obstacles [RandomObstacle()]) as GameObject;
+		o.transform.SetParent (transform);
+		o.transform.position = new Vector3(0, SpawnY, 0);
+		SpawnY += Dist;
+		activeObstacle.Add (o);
+	} 
+	private void DeleteObstacle() {
+		Destroy (activeObstacle [0]);
+		activeObstacle.RemoveAt (0);
 	}
+
 	private int RandomObstacle() {
 		if (obstacles.Length <= 1) {
 			return 0;
 		}
-		int RandomO = LastObstacle;
-		while (RandomO == LastObstacle) {
-			RandomO = Random.Range(0, 3);
+		int Rand = LastObInd;
+		while (Rand == LastObInd) {
+			Rand = Random.Range (0, obstacles.Length);
 		}
-		LastObstacle = RandomO;
-		return RandomO;
+		LastObInd = Rand;
+		return Rand;
 	}
 }
