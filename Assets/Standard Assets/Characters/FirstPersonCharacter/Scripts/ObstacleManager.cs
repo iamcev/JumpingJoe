@@ -6,8 +6,8 @@ public class ObstacleManager : MonoBehaviour {
 
 	public GameObject[] obstacles;
 	private Transform jjt;
-	private float SpawnY = 0.0f;
-	private float Dist = 8.0f;
+	private float SpawnY = 10.0f;
+	private float Dist = 300.0f;
 	private int ObstaclesOnScreen = 6;
 	private int LastObInd = 0;
 

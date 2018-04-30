@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI; 
+using UnityEngine.SceneManagement;
 public class Acceleration : MonoBehaviour {
     public Text meters;
     float delta = 0f;
@@ -11,14 +12,11 @@ public class Acceleration : MonoBehaviour {
     {
         get
         {
-            if (Application.platform == RuntimePlatform.Android)
-            {
-                if (Input.touchCount > 0)
-                {
-                    return true;
-                }
+            if (Input.touchCount > 0) {
+            	return true;
             }
             return Input.GetKey("space");
+            
         }
     }
 
@@ -26,7 +24,7 @@ public class Acceleration : MonoBehaviour {
     {
          get
         {
-            if(Input.GetKey("left"))
+            if (Input.GetKey("left"))
             {
                 return 1;
             }
@@ -67,7 +65,7 @@ public class Acceleration : MonoBehaviour {
 		var movHoriz = Input.mousePosition.x;
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         var z = gameObject.name.Equals("Main Camera") ? 25f : 0f;
-        var x = transform.position.x + LeftRightModifier * incr * 5;
+        var x = transform.position.x + LeftRightModifier * incr * 6;
         if (x > 17)
         {
             x = 17;
@@ -82,19 +80,11 @@ public class Acceleration : MonoBehaviour {
 		{
 			meters.text = (height / 1000).ToString() + "km"; 
 		}
+		if (height == 50000) {
+			SceneManager.LoadScene ("space");
+		}
 		
 
-    }	
-
-	void OnCollisionEnter (Collision col) {
-		if (col.gameObject.tag == "Obstacle") {
-			Restart();
-			Debug.Log("flajf");
-		} 
-	}
-
-	void Restart() {
-		transform.position = new Vector3 (0, 0, 0);
-	} 
+    }
 
 }
