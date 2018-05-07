@@ -11,6 +11,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/jumpinjoe.unity
     guid: 7863c383adfe5aa4085c9561d35da934
-  - enabled: 1
-    path: Assets/Scenes/space.unity
-    guid: ff2f5f342c1b3404cae5490b0fe445f3
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
