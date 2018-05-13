@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI; 
+using UnityEngine.SceneManagement;
 public class Acceleration : MonoBehaviour {
     public Text meters;
     float delta = 0f;
@@ -67,12 +68,12 @@ public class Acceleration : MonoBehaviour {
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         var z = gameObject.name.Equals("Main Camera") ? 25f : 0f;
         var x = transform.position.x + LeftRightModifier * incr * 5;
-        if (x > 4)
+        if (x > 2.5f)
         {
-            x = 4;
-        } else if (x < -4)
+            x = 2.5f;
+        } else if (x < -2.5f)
         {
-            x = -4;
+            x = -2.5f;
         }
         transform.position = new Vector3(x, height, transform.position.z);
 		meters.text = height.ToString() + "m";
@@ -91,10 +92,8 @@ public class Acceleration : MonoBehaviour {
 		} 
 	}
 
-	void Restart() {
-        delta = 0f;
-        height = 0f;
-        transform.position = new Vector3 (0, 0, 0);
+	void Restart () {
+		SceneManager.LoadScene ("gameover");
 	} 
 
 }
