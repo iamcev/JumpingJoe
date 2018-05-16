@@ -44,40 +44,29 @@ public class Acceleration : MonoBehaviour {
 	// Use this for initialization
 	void Start () 
 	{
-        Restart();
     }
 
     // Update is called once per frame
-    void Update()
-    {
-        if (this.Accelerating)
-        {
+    void Update() {
+        if (this.Accelerating) {
             delta += incr;
-        }
-        else
-        {
+        } else {
             delta -= incr;
         }
         height += delta;
-        if (height <= 0)
-        {
+        if (height <= 0) {
             height = 0f;
             delta = 0f;
         }
-        //Vector3 movHoriz = Input.mousePosition;
-        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-        var z = gameObject.name.Equals("Main Camera") ? 25f : 0f;
         var x = transform.position.x + LeftRightModifier * incr * 5;
-        if (x > 2.5f)
-        {
+        if (x > 2.5f) {
             x = 2.5f;
-        } else if (x < -2.5f)
-        {
+        } else if (x < -2.5f) {
             x = -2.5f;
         }
         transform.position = new Vector3(x, height, transform.position.z);
+
 		meters.text = height.ToString() + "m";
-        Debug.Log(transform.position);
 		if (height > 1000)
 		{
 			meters.text = (height / 1000).ToString() + "km"; 
