@@ -14,3 +14,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/gameover.unity
     guid: b879c71f6fe09f447afe6cfb64b26fac
+  - enabled: 1
+    path: Assets/Scenes/closet.unity
+    guid: abc224ae1a8ace444805e7cb75b502ce

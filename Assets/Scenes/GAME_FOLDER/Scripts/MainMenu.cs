@@ -22,4 +22,7 @@ public class MainMenu : MonoBehaviour {
 	public void Play () {
 		SceneManager.LoadScene ("jumpinjoe");
 	}
+	public void Closet() {
+		SceneManager.LoadScene ("closet");
+	}
 }
