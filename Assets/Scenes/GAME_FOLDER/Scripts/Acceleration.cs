@@ -39,8 +39,6 @@ public class Acceleration : MonoBehaviour {
         }
     }
 
-    public GameObject JumpingJoe;
-
 	// Use this for initialization
 	void Start () 
 	{
@@ -83,6 +81,7 @@ public class Acceleration : MonoBehaviour {
 
 	void Restart () {
 		SceneManager.LoadScene ("gameover");
+		PlayerPrefs.SetFloat ("Score", height);
 	} 
 
 }
