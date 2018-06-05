@@ -7,7 +7,6 @@ public class MainMenu : MonoBehaviour {
 
 	public Text HiScTe;
 	private float Score;
-	private float LastScore;
 
 	// Use this for initialization
 	void Start () {
